@@ -71,3 +71,35 @@ namespace CRUDSederhana
                         return;
                     }
 
+                    conn.Open();
+                    string query = "INSERT INTO Mahasiswa (NIM, Nama, Email, Telepon, Alamat) VALUES (@NIM, @Nama, @Email, @Telepon, @Alamat)";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@NIM", textNIM.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Nama", textNama.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Email", textEmail.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Telepon", textTelepon.Text.Trim());
+                        cmd.Parameters.AddWithValue("@Alamat", textAlamat.Text.Trim());
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Data berhasil ditambahkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadData();
+                            ClearFrom();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Data tidak berhasil di tambahkan!", "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message, "Kesalahan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+        }
+
+  
