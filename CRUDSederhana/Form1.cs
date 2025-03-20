@@ -25,4 +25,14 @@ namespace CRUDSederhana
             LoadData();
         }
 
- 
+        private void ClearFrom()
+        {
+            textNIM.Clear();
+            textNama.Clear();
+            textEmail.Clear();
+            textTelepon.Clear();
+            textAlamat.Clear();
+
+            label1.Focus();
+        }
+
