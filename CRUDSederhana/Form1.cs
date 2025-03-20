@@ -153,3 +153,41 @@ namespace CRUDSederhana
             MessageBox.Show($"Jumlah Kolom: {dgvMahasiswa.ColumnCount}\nJumlah Baris: {dgvMahasiswa.RowCount}",
                 "Debugging DataGridView", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void dgvMahasiswa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgvMahasiswa.Rows[e.RowIndex];
+                textNIM.Text = row.Cells[0].Value.ToString();
+                textNama.Text = row.Cells[1].Value.ToString();
+                textEmail.Text = row.Cells[2].Value.ToString();
+                textTelepon.Text = row.Cells[3].Value.ToString();
+                textAlamat.Text = row.Cells[4].Value.ToString();
+            }
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
+
+
+}
